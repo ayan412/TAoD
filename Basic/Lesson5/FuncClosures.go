@@ -3,10 +3,10 @@ package main
 import "fmt"
 
 func totalPrice(initPrice int) func(int) int {
-	sum := initPrice // часть внешней ф-й totalPrice
+	sum := initPrice // часть внешней ф-и totalPrice
 	return func(x int) int { // anonymous function which generate closures
 		sum += x
-		return sum // sum возвращается в sum на 4-й строке или нет?
+		return sum // sum возвращается в sum на 6-й строке или нет?
 	}
 }
 
