@@ -5,40 +5,37 @@ var _ User = &superUser{}
 type superUser struct {
 	Name string
 	Age int
+	isBlocked bool
+}
 
+func (s *superUser) Block() {
+	s.isBlocked = true
 }
 
 var _ User = &user{}
 
 type user struct {
 	FIO, Address, Phone string
+	isBlocked bool
 }
 
-func (u *user) ChangeFIO(newFio string) {
-	u.FIO = newFio
+func (u *user) Block() {
+	u.isBlocked = true
 }
 
-func (u *user) ChangeAddress(newAddress string) {
-	u.Address = newAddress
-}
 
 type User interface {
-	ChangeFIO(newFIO string)
-	ChangeAddress(newAddress string)
+	Block()
 }
 
 func NewUser(fio, address, phone string) User {
-	u := user {
-		FIO: fio,
-		Address: address,
-		Phone: phone,
-	}
-
+	u := superUser{} // или user{}
 	return &u
 }
 
 func main() {
-
+	u := NewUser("Kim", "33","9379992")
+	u.Block()
 
 }
 
