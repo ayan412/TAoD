@@ -1,0 +1,4 @@
+time="2023-04-14T12:41:18+06:00" level=info msg="create router" func="main.main()" file="app.go:27"
+time="2023-04-14T12:41:18+06:00" level=info msg="read application configuration" func="project/rest-api-tutorial/internal/config.Getconfig.func1()" file="config.go:27"
+time="2023-04-14T12:41:18+06:00" level=info func="project/rest-api-tutorial/internal/config.Getconfig.func1()" file="config.go:31"
+time="2023-04-14T12:41:18+06:00" level=fatal msg="open config.yml: no such file or directory" func="project/rest-api-tutorial/internal/config.Getconfig.func1()" file="config.go:32"
