@@ -28,7 +28,7 @@ func main() {
 	cfg := config.GetConfig()
 
 	logger.Info("register user handler")
-	handler := user.NewHandler(*logger)
+	handler := user.NewHandler(logger)
 	handler.Register(router)
 
 	start(router, cfg)
@@ -55,7 +55,6 @@ func start(router *httprouter.Router, cfg *config.Config) {
 		listener, listenErr = net.Listen("unix", socketPath)
 	} else {
 		logger.Info("listen tcp")
-
 		listener, listenErr = net.Listen("tcp", fmt.Sprintf("%s:%s", cfg.Listen.BindIP, cfg.Listen.Port))
 	}
 
